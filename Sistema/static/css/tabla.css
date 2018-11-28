@@ -1,0 +1,23 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, td {
+    border: 1px solid black;
+    height: 50px;
+    text-align: center;
+
+}
+
+table, th {
+    border: 1px solid black;
+    height: 50px;
+    text-align: center;
+}
+
+@media screen and (max-width: 740px) {
+    table {
+        width: 100%;
+    }
+}

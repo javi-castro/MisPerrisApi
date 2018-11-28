@@ -1,0 +1,52 @@
+{% extends "master.html" %}
+{% load static %}
+{% block Import %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block Carrusel %}
+<div id="carrusel"> <!--Aqui creamos el carrusel con alunas fotos de los perritos rescatados-->
+			<div><img src="{% static 'img/Tom.jpg' %}" alt="nueve" title="Tom encontro un horgar"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'img/Apolo.jpg' %}" alt="nueve" title="Apolo encontro quien lo saque a pasear"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'img/Duque.jpg' %}" alt="nueve" title="Duque encontro un dueño con quien viajar"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'images/04.jpg' %}" alt="nueve" title="Fluffy encontro quien le diera amor"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'images/05.jpg' %}"  alt="nueve" title="Macho esta traquilo con su nueva familia"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+			</div>
+			<script src="{% static 'js/codigo.js' %}"></script>
+			
+			<div class="social"><!--Creamos la clase social´para poder poner las distintas redes sociales para infromarse mas sobre la fundacion-->
+			<nav>
+				 <span><a href="https://es-la.facebook.com/" target="_blank" <i class="fab fa-facebook-f"></i></a></span> <!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="http://www.googleplus.com/" target="_blank" <i class="fab fa-google-plus-g"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="https://www.instagram.com/?hl=es-la" target="_blank" <i class="fab fa-instagram"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="mailto:anto_catro_correa@hotmail.com" target="_blank" <i class="far fa-envelope"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+			</nav>
+			</div>
+{% endblock %}
+
+{% block Indices %}
+<nav>
+	<a href="{% url 'indice' %}">Inicio</a>
+	<a href="{% url 'nosotros' %}">Quienes Somos</a>
+	<a href="{% url 'contacto' %}">Contacto</a>
+	<a href="{% url 'registrate' %}">Formulario</a>
+    <a href="{% url 'login' %}">Iniciar Sesión</a><!--Aqui usamos el elemento href que sirve para indicar una url y agregar un enlace a nuestra pagina-->
+</nav>
+{% endblock %}
+
+{% block Contenido %}
+<form method="POST" class= "formularioLogin">
+<seccion id="login">
+<h2>Iniciar Sesión</h2>
+    <ul>
+    {% csrf_token %}
+    {{form.as_p}}
+    </ul>
+    <input type="submit" class="botoninicio" value="Iniciar Sesión">
+    <div>
+        <a href="{% url 'registrate' %}" class="registrate">Crear Cuenta</a>
+    </div>
+	<a href="{% url 'password_reset'%}"> Olvidaste tu contraseña?</a>
+ </seccion>   
+</form>
+{% endblock %}

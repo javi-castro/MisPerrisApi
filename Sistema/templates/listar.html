@@ -1,0 +1,99 @@
+{% extends "master.html" %}
+{% load staticfiles %}
+{% load static %}
+
+{% block Carrusel %}
+<div id="carrusel"> <!--Aqui creamos el carrusel con alunas fotos de los perritos rescatados-->
+			<div><img src="{% static 'img/Tom.jpg' %}" alt="nueve" title="Tom encontro un horgar"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'img/Apolo.jpg' %}" alt="nueve" title="Apolo encontro quien lo saque a pasear"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'img/Duque.jpg' %}" alt="nueve" title="Duque encontro un dueño con quien viajar"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'images/04.jpg' %}" alt="nueve" title="Fluffy encontro quien le diera amor"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+            <div><img src="{% static 'images/05.jpg' %}"  alt="nueve" title="Macho esta traquilo con su nueva familia"></div><!--llamamos a la imagen deseada mediante src indicamos primero nombre_carpeta/nombre_archivo.png-->
+			</div>
+			<script src="{% static 'js/codigo.js' %}"></script>
+			
+			<div class="social"><!--Creamos la clase social´para poder poner las distintas redes sociales para infromarse mas sobre la fundacion-->
+			<nav>
+				 <span><a href="https://es-la.facebook.com/" target="_blank" <i class="fab fa-facebook-f"></i></a></span> <!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="http://www.googleplus.com/" target="_blank" <i class="fab fa-google-plus-g"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="https://www.instagram.com/?hl=es-la" target="_blank" <i class="fab fa-instagram"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+				 <span><a href="mailto:anto_catro_correa@hotmail.com" target="_blank" <i class="far fa-envelope"></i></a></span><!--Aqui creamos los iconos a cada icono le asignamos una clase para asi despues poder llamarla en el css-->
+			</nav>
+			</div>
+{% endblock %}
+
+{% block Import %}
+<link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+{% endblock %}
+
+{% block usuario %}
+  <div>
+    {% if actual %}
+        <div class="logo">Bienvenido(a) {{actual.username}}</div>
+    {% endif %}
+    </div>
+{% endblock %}
+
+{% block Indices %}
+<nav>
+	<a href="{% url 'indice' %}">Inicio</a>
+	<a href="{% url 'nosotros' %}">Quienes Somos</a>
+	<a href="{% url 'contacto' %}">Contacto</a>
+	<a href="{% url 'registrate' %}">Formulario</a>
+    <a href="{% url 'logout' %}">Salir</a><!--Aqui usamos el elemento href que sirve para indicar una url y agregar un enlace a nuestra pagina-->
+</nav>
+{% endblock %}
+{% block Lista %}
+<h1 >Lista de Mascotas</h1>
+{% if mascota %}
+<table>
+    <tr>
+         <th> Foto Mascota</th>
+         <th> Nombre </th>
+         <th> Raza </th> 
+         <th> Descripcion </th> 
+         <th> Estado </th> 
+    </tr>
+    {% for m in mascota %}
+    <tr>
+         <td> <img src="/media/{{ m.fotoMascota }}" width="50px" alt=""> </td>
+         <td>{{ m.nombreMascota }}</td> 
+         <td>{{ m.raza }}</td> 
+         <td>{{ m.descripcion }}</td> 
+         <td>{{ m.estado }}</td>                    
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<h3>No hay Mascotas registradas</h3>
+{% endif %}
+<div class="pagination">
+    {% if mascota.has_previous %}
+    <button>
+        <a href="?page=1">First</a>
+    </button>
+    <button>
+      <a href="?page={{ mascota.previous_page_number }}">Previous</a>
+    </button>
+    {% endif %}
+    {% for num in mascota.paginator.page_range %}
+      {% if mascota.number == num %}
+      <button>
+        <span>{{ num }}</span>
+    </button>
+      {% elif num > mascota.number|add:'-3' and num < mascota.number|add:'3' %}
+      <button>
+        <a href="?page={{ num }}">{{ num }}</a>
+      </button>
+      {% endif %}
+    {% endfor %}
+    {% if mascota.has_next %}
+    <button>
+      <a href="?page={{ mascota.next_page_number }}">Next</a>
+    </button>
+    <button>
+     <a href="?page={{ mascota.paginator.num_pages }}">Last</a>
+    </button>
+    {% endif %}
+  </div>
+{% endblock %} 

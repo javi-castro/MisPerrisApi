@@ -1,0 +1,86 @@
+<!doctype html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Mis Perris</title>
+    <meta name="description" content="Pagina completa con Flexbox"><!--Utilizamos el descriptor en meta para apoyar la busqueda de contenidos en la web-->
+    <meta name="viewport" content="width=device-widtg, user-scalable=no, initial-scale=1.0,maximun-scale=1.0,minimun-scale=1.0"><!--las escalas indican un punto inicial, la escala maxima y minima-->
+    <script src="{% static 'prefix.js'%}" type="test/javascript"></script><!--Script para asegurarq eu en todos los navegadores y dispositivos el sitio se vea igual-->
+    <link rel="stylesheet" href="{% static 'css/jquery.bxslider.css' %}">
+	<link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+    {% block Import %}
+    {% endblock %}
+</head>
+    <body>
+        <div class="contenedor">
+		<header>
+			<div class="logo">
+				<img src="{% static 'images/huella_blanca.png' %}" width="150" alt="">
+				<a href="{% url 'indice' %}">Mis Perris</a>
+			</div>
+
+			{% block Indices %}
+			{% endblock %}
+            {% block Carrusel %}
+            {% endblock %} 
+		</header>
+
+    	{% block usuario %}
+		{% endblock %}
+
+		<section class="main">
+		
+			 {% block Login%}
+                {% endblock %}
+                <div class="lista">
+                    {% block Lista%}
+                    {% endblock %}
+                </div>
+                <div class="formulario">
+                    {% block Contenido %}
+                    {% endblock %}
+                </div>
+		</section>
+		
+		<div class="contenedor">
+			<div class="caja"><!--Creamos la clase caja-->
+				<img src="{% static 'images/08.jpg' %}"  > <!--Llamamos a las imagenes deseadas y le asignamos un titulo a la imagen mendiante el elemento title-->
+				<img src="{% static 'images/09.jpg' %}"  >
+				<img src="{% static 'images/10.jpg' %}"  >
+			</div>
+			<div class="caja largo"><!--Creamos la clase caja mas largo-->
+				<img src="{% static 'images/15.png' %}" style="height:50%" >
+				<img src="{% static 'images/16.jpg' %}" alt="Nueve" style="height:45%" >
+			</div>
+			<div class="caja"><!--Creamos la clase caja-->
+				<img src="{% static 'images/17.jpg' %}" style="height:62%" >
+				<img src="{% static 'images/11.jpg' %}" >
+			</div>
+        </div>     	
+	</div>
+	
+	<footer>
+	<p align="left"> Desarrollo Web y Mobile </p>
+	</footer>
+    </body>
+
+	<script>
+        $(document).ready(function(){
+            $.ajax({url: "http://localhost:8000/api/v1/Mascotas", success: function(result){
+                $("#listaMascotas").append("Mascotas");
+                $.each(result, function(i, items){
+                    $("#listaMascotas").append(result[i].fotoMascota);
+                    $("#listaMascotas").append(result[i].nombreMascota);
+                    $("#listaMascotas").append(result[i].raza);
+                    $("#listaMascotas").append(result[i].descripcion);
+                    $("#listaMascotas").append(result[i].estado);
+                });
+            }});
+        })
+
+    </script>
+</html>

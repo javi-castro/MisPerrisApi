@@ -1,0 +1,80 @@
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  padding: 1em;
+  background: #f9f9f9;
+  border: 1px solid #c1c1c1;
+  margin-top: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  width:350px;
+}
+form input {
+  border: 1px solid #9c9c9c;
+}
+
+
+label {
+  text-align: left;
+  display: inline-block;
+  padding: 0.5em 1.5em 0.5em 0;
+  width:80px;
+}
+
+input {
+  width: 140px;
+  padding: 0.7em;
+  margin-bottom: 0.5rem;
+}
+input:focus {
+  outline: 3px solid gold;
+}
+
+.seleccion{
+	font-size:17px;
+	display: inline-block;
+	width:140px;
+	height:35px;
+}
+
+#btn_registrar {
+	background-color: darkcyan;
+	border: none; /* Sin borde */
+	color: white;
+	margin: 4px auto;
+	max-width: 500px; /* A medida de haya más ancho de pantalla el botón tendrá máximo 500 píxeles de ancho */
+	width: 70%;
+}
+
+/* Se aplica esto cuando el cursor esté encima del botón REGISTRAR */
+#btn_registrar:hover {
+	background-color: #00C0C0;
+}
+
+/* Se aplica esto cuando se hace clic en el botón REGISTRAR */
+#btn_registrar:active {
+	background-color: royalblue;
+}
+
+@media (min-width: 400px) {
+  form {
+    overflow: hidden;
+  }
+
+  label {
+    float: left;
+    width: 200px;
+  }
+
+  input {
+    float: left;
+    width: calc(100% - 200px);
+  }
+
+
+}

@@ -1,0 +1,307 @@
+* {
+	margin: 0;
+	padding: 0;
+	/*se define como se calcularán los cuadrados en base al ancho y al alto con respecto al padding
+	content-box indica que todo será sin considerar padding o bordes
+	border-box indica que se incluyen en los calculos bordes y padding
+	initial se fija el valor por defecto, depende del dispositivo y el navegador
+	inherit utiliza el valor del contenedor del elemento
+	*/
+	box-sizing: border-box;
+	
+}
+
+.contenedor {
+	background:#ccc;
+	width:90%;
+	max-width:1000px;
+	margin:auto;
+	
+	/* Flexbox */
+	/*display es la propiedad que indica como se verán los elementos
+	En css tradicional se usan tipicamente block, inline none, table, pero existen varias opciones
+	flex indica que el elemento tendrá características responsivas
+	*/
+	display:flex;
+	/*Flex-flow indica como se desplegarán los elementos dentro de un contenedor flex
+	hay dos configuraciones básicas flex-direction y flex-wrap
+	row, row-reverse, column, column-reverse flex directiion
+	nowrap,wrap,wrap-reverse
+	*/
+	flex-flow:row wrap;
+}
+
+body {
+	background:#e9e9e9;
+}
+
+.carrusel img{
+	width: 100%;
+	justify-content:space-between;
+}
+
+header {
+	background:#09dc99;
+	width:100%;
+	padding:20px;
+	text-align: center;
+	/* Flexbox */
+	/*display: flex;*/
+	/*flex-start desde un comienzo hasta el final
+	flex-end desde el final al comienzo
+	center 
+	space-between los items son puestos con espacios posteriores
+	space-around items son puestos con espacios antes
+	*/
+	justify-content:center;
+	align-items:center;
+
+	flex-direction:row;/**otra forma de mostrar lo mismo*/
+	flex-wrap:wrap;
+}
+
+header .logo {
+	color:#fff;
+	font-size:30px;
+}
+
+header .logo img {
+	width:50px	;
+	vertical-align: top;
+}
+
+header .logo a {
+	color:#fff;
+	text-decoration: none;
+	line-height:50px;
+}
+
+header nav {
+	width:50%;
+	/* Flexbox */
+
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+}
+
+header nav a {
+	border-bottom: #75d2b2 2px solid;
+	background:#08c488;
+	color:#fff;
+	text-align: center;
+	text-decoration: none;
+	padding:10px;
+
+	/* Flexbox */
+	flex-grow:1; /*Especifica el numero maximo de items flex que pueden adecuarse en una zona*/
+}
+
+header nav a:hover {
+	background:#50FFC7;
+}
+
+.social {
+    overflow: auto;
+	width:100%;
+	margin:0 auto;
+}
+
+.social span {
+    margin: 10px 0;
+	font-size: 16px;
+	font-weight: 600;
+	
+}
+
+.social nav {
+	display: inline;
+	margin-top:50px;
+	
+}
+
+
+
+.fab{
+	display: inline-block;
+	width: 40px; 
+	height: 40px;
+	margin: 5px 0; 
+	padding: 0;
+	border-radius: 50%;
+}
+.far{
+	display: inline-block;
+	width: 40px; 
+	height: 40px;
+	margin: 5px 0; 
+	padding: 0;
+	border-radius: 50%;
+	
+}
+
+.social a {
+	padding-top: 10px;
+}
+
+.fab.fa-facebook-f { background-color: #fff; color:#010101}/*LLamos la clase que le asignamos a las redes sociales y le asignamos un color de fondo y un color de la fuente*/
+.fab.fa-google-plus-g { background-color: #fff; color:#010101}/*LLamos la clase que le asignamos a las redes sociales y le asignamos un color de fondo y un color de la fuente*/
+.fab.fa-instagram { background-color: #fff; color:#010101}/*LLamos la clase que le asignamos a las redes sociales y le asignamos un color de fondo y un color de la fuente*/
+.far.fa-envelope { background-color: #fff; color:#010101}/*LLamos la clase que le asignamos a las redes sociales y le asignamos un color de fondo y un color de la fuente*/
+
+.main {
+	background:#fff;
+	padding:20px;
+
+	flex:1 1 70%;/*Establece que sera un 70% del ancho del contenedor
+	1 es el numero máximo de items flex 
+	1 estabñece que será automático el ajuste, es decir no cambiará su escala en base a los dimensionamientos
+	
+	*/
+	
+	/*flex:1;*/
+}
+
+.main article {
+	margin-bottom: 20px;
+	padding-bottom:20px;
+}
+
+.main article:nth-last-child(1){
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom:none;
+}
+
+.contenedor{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+	display:flex;
+	justify-content:space-between;
+}
+
+.contenedor .caja{
+	padding:10px;
+    width: 32%;
+    overflow: hidden;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
+}
+
+.contenedor .caja img{
+    width: 100%;
+    height: 32%;
+    object-fit:cover;
+}
+img:hover{
+    transform:scale(1.5);
+    transition:all ease 1.5s;
+    cursor:pointer;
+}
+
+.contenedor .largo img{
+	 height: 48%;
+}
+
+.contenedor .maslargo{
+	height:65%;
+	
+}
+.subtitulo {
+	font-family: arial;
+}
+
+#hr1{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 15%;
+	float: right;
+}
+#hr2{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	width: 15%;
+	float: left;
+}
+p{
+	clear:both;
+}
+
+.texto-encima{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+@media screen and (max-width: 800px) {
+	/*https://www.w3schools.com/cssref/css3_pr_mediaquery.asp*/
+	.contenedor {
+		background: #09dc99;
+		justify-content:space-between;
+		width: 100%;
+		max-width: 1000px;
+		margin: auto;
+		display:flex;
+		overflow: hidden;
+	}
+	ul{
+    position: relative;
+    width: 100%;
+    margin: 60px 0;
+}
+ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #fff;
+    margin-right: 15px;
+    text-transform: capitalize;
+}
+ul li:hover,.activo{
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+	header {
+		flex-direction:column;
+		padding:0;
+	}
+
+	header .logo {
+		margin:20px 0;
+	}
+
+	header nav {
+		width: 100%;
+		flex-direction:column;/*cambiamos los botones de forma vertical con flex-direction*/
+		
+	}
+	
+	header nav a{
+		width:100%;
+		border-bottom:1px solid #09dc99;/*Agregmos bordes a los botones de forma vertical*/
+		background:#08c488;
+	}
+	
+	aside {
+		flex-direction:row;
+		flex:0;
+	}
+
+	aside .widget {
+		flex-grow:1;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	aside {
+		flex-direction:column;
+	}
+
+	footer {
+		justify-content:space-around;
+	}
+}

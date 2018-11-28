@@ -1,0 +1,93 @@
+/*FORMULARIO REGISTRO*/
+.formularioRegistro {
+	width: 100%;
+	padding: 5px;
+	padding-top: 50px;
+    padding-bottom: 50px;
+    /*FLEX BOX*/
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#registro {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: auto;
+    border: 1px solid rgb(0, 0, 0);
+    
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+  #registro .botonconfirmar {
+	margin: auto;
+	border: none;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+	font-size: 15px;
+    cursor: pointer;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+input{
+    padding: .2em;
+}
+@media screen and (max-width: 740px) {
+	/*https://www.w3schools.com/cssref/css3_pr_mediaquery.asp*/
+	.contenedor {
+		background: #09dc99;
+		justify-content:space-between;
+		width: 100%;
+		max-width: 1000px;
+		margin: auto;
+		display:flex;
+		overflow: hidden;
+	}
+	ul{
+    position: relative;
+    width: 100%;
+    margin: 60px 0;
+    }   
+    ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px 20px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #fff;
+    margin-right: 15px;
+    text-transform: capitalize;
+    box-shadow: none;
+    }
+    
+    #registro {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin: auto;
+    border: 1px solid rgb(0, 0, 0);
+    padding-left: 20px;
+    padding-right: 20px;
+    }
+
+    label {
+        display: block;
+        
+    }
+    input{
+        padding: .2em;
+    }
+
+    .botonconfirmar {
+        margin: auto;
+        border: none;
+        padding: 5px 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 15px;
+        cursor: pointer;
+        flex-wrap: wrap;
+        margin-top: 5px;
+    }
+}
