@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'Sistema.apps.SistemaConfig',
     'rest_framework',
     'Api.apps.ApiConfig',
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'MisPerris.urls'
@@ -65,6 +67,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -142,3 +146,13 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'contacto.misperris.javiera@gmail.com'
 EMAIL_HOST_PASSWORD = 'misperris123'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+AUTHENTICATION_SETTINGS = (
+  'social_core.backends.instagram.InstagramOAuth2',
+  'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/mascota/'
+
+SOCIAL_AUTH_INSTAGRAM_KEY = '1a581f1a14e641cc9e78eefee983a819'
+SOCIAL_AUTH_INSTAGRAM_SECRET = '66578745784140298feb3f6289f0b5f9'

@@ -45,6 +45,7 @@
     <input type="submit" class="botoninicio" value="Iniciar Sesión">
     <div>
         <a href="{% url 'registrate' %}" class="registrate">Crear Cuenta</a>
+		<a href="{% url 'social:begin' 'instagram' %}" class="registrate">Iniciar con Instagram</a>
     </div>
 	<a href="{% url 'password_reset'%}"> Olvidaste tu contraseña?</a>
  </seccion>   
