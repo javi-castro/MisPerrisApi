@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include('Api.urls')),
     path('', include('Sistema.urls')),
+    path('',include("pwa.urls")),
 ]
