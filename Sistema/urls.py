@@ -2,10 +2,11 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import url, include
+from django.contrib.auth import views as auth_views
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 urlpatterns=[
-    url(r'^index/$', views.index,name="indice"),
+    url(r'^$', views.index,name="indice"),
     url(r'^nosotros/$', views.nosotros,name="nosotros"),
     url(r"^contacto/$", views.contacto, name = "contacto"),
     url(r'^login/$', views.ingresar, name="login"),
@@ -22,5 +23,6 @@ urlpatterns=[
     name="password_reset_confirm"),
     url(r'^reset/done', PasswordResetCompleteView.as_view(), {'template_name': 'recuperarcontraseña/password_reset_complete.html'},
     name='password_reset_complete'),
-    url('', include('social_django.urls', namespace = "social")),
+    #AGREGAMOS LA LIBRERIA POR DEFECTO DE SOCIAL_LOGIN
+    url(r'^oauth/', include('social_django.urls', namespace='social')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

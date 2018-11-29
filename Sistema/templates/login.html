@@ -44,8 +44,9 @@
     </ul>
     <input type="submit" class="botoninicio" value="Iniciar Sesión">
     <div>
-        <a href="{% url 'registrate' %}" class="registrate">Crear Cuenta</a>
-		<a href="{% url 'social:begin' 'instagram' %}" class="registrate">Iniciar con Instagram</a>
+        <a href="{% url 'registrate' %}" class="registrate">Crear Cuenta |</a>
+		<!--AGREGAMOS LA URL DE LA RED SOCIAL-->
+		<a href="{% url 'social:begin' 'google-oauth2' %}" class="registrate">Ingresar con Google+</a>
     </div>
 	<a href="{% url 'password_reset'%}"> Olvidaste tu contraseña?</a>
  </seccion>   

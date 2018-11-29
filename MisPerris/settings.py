@@ -37,11 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #IMPORTAMOS LA LIBRERIA SOCIAL LOGIN
     'social_django',
     'Sistema.apps.SistemaConfig',
     'rest_framework',
     'Api.apps.ApiConfig',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #AGREGAMOS SOCIAL_DJANGO MIDDLEWARE
     'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
@@ -67,6 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #IMPORTAMOS ESTOS 2 PROCESADORES
                 'social_django.context_processors.backends',
                 'social_django.context_processors.login_redirect',
             ],
@@ -147,12 +151,13 @@ EMAIL_HOST_USER = 'contacto.misperris.javiera@gmail.com'
 EMAIL_HOST_PASSWORD = 'misperris123'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-AUTHENTICATION_SETTINGS = (
-  'social_core.backends.instagram.InstagramOAuth2',
+AUTHENTICATION_BACKENDS = (
+    #AGREGAMOS EL BACKEND DE GOOGLE+
+  'social_core.backends.google.GoogleOAuth2',
   'django.contrib.auth.backends.ModelBackend',
 )
-
+#REDIRECCIONAMOS A LA PAGINA DE MOSTRAR MASCOTAS
 SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/mascota/'
 
-SOCIAL_AUTH_INSTAGRAM_KEY = '1a581f1a14e641cc9e78eefee983a819'
-SOCIAL_AUTH_INSTAGRAM_SECRET = '66578745784140298feb3f6289f0b5f9'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '804801120106-uirvvfmgvstb81vqvvd5di124pl5mokn.apps.googleusercontent.com'#CLIENTE ID
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET= 'sj99Se2Bd3uWlq30Z6-1lWiq'#CLAVE SECRETA

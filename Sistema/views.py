@@ -11,6 +11,9 @@ from django.core.paginator import Paginator
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.core.mail import EmailMessage
+#IMPORTAMOS LA LIBRERIA DE USERSOCIALAUTH
+from social_django.models import UserSocialAuth
+
 # Create your views here.
 acciones=[
    {'Mostrar':'Home','url':'inicio'}

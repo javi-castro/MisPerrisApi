@@ -14,7 +14,7 @@ class Usuario(models.Model):
     region=models.CharField(max_length=30)
     ciudad=models.CharField(max_length=30)
     tipoVivienda = models.CharField(max_length = 20)
-
+#CREAMOS LA CLASE MASCOTA
 class Mascota(models.Model):
     codigoMascota = models.AutoField(primary_key = True)
     fotoMascota = models.ImageField(upload_to='FotosMascotas/')
@@ -22,7 +22,7 @@ class Mascota(models.Model):
     raza = models.CharField(max_length = 20)
     descripcion = models.TextField()
     estado = models.CharField(max_length = 15)
-
+#CREAMOS LA CLASE MASCOTA
 class Mensaje(models.Model):
     codigoMensaje = models.AutoField(primary_key = True)
     nombreMensaje = models.CharField(max_length = 30)
